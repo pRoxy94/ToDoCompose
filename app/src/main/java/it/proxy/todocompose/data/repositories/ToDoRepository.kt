@@ -1,10 +1,13 @@
 package it.proxy.todocompose.data.repositories
 
+import dagger.hilt.android.scopes.ViewModelScoped
 import it.proxy.todocompose.data.ToDoDao
 import it.proxy.todocompose.data.models.ToDoTask
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+
+@ViewModelScoped
 class ToDoRepository @Inject constructor(private val toDoDao: ToDoDao) {
 
     val getAllTasks: Flow<List<ToDoTask>> = toDoDao.getAllTasks()
